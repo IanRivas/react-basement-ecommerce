@@ -25,3 +25,18 @@ a {
 * {
   box-sizing: border-box;
 }
+
+div.gradient{
+  background: linear-gradient(180deg, #1D1D1D 0%, rgba(21, 21, 21, 0) 100%);
+  transform: rotate(-180deg);
+  height: 577px;
+}
+
+p.text-animation{
+  animation: scrollLeft 5s linear infinite
+}
+
+@keyframes scrollLeft {
+  0%{transform: translateX(0);}
+  100%{transform: translateX(-64%);}
+}

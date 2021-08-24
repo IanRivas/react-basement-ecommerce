@@ -9,6 +9,7 @@ function App({Component, pageProps}: AppProps) {
       <Head>
         <title>Basement Supply</title>
         <meta content="Coding challenge for basement.studio." name="description" />
+        <link href="/favicon.ico" rel="shortcut icon" />
       </Head>
       <Component {...pageProps} />
     </>
