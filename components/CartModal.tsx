@@ -22,7 +22,7 @@ const CartModal: React.FC<CartProps> = ({
   products,
 }) => {
   const showHideClassName = show
-    ? "bg-block fixed bg-black text-white top-0 right-0 z-30 border border-white w-3/5 h-3/4 | xl:w-2/5 xl:h-3/4 modal-container "
+    ? "bg-block fixed bg-black text-white top-0 z-30 border border-white w-3/5 h-3/4 | xl:w-2/5 xl:h-3/4 modal-container overflow-y-scroll "
     : "hidden";
 
   const subtractItem = (id: number) => {
@@ -61,7 +61,7 @@ const CartModal: React.FC<CartProps> = ({
           <span className="text-8xl">YOUR</span>
           <span className="text-8xl text-black text-bor">CART</span>
         </div>
-        <div className="px-4 overflow-scroll w-full h-4/6 overflow-x-hidden">
+        <div className="px-4 overflow-scroll w-full sm:h-4/6 overflow-x-hidden">
           {products.map((cart, index) =>
             shoppingCart.filter((c) => c.id === index + 1).length > 0 ? (
               <ShoppingCard

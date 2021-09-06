@@ -77,7 +77,7 @@ span.text-bor{
 @media (max-width: 880px) {
   .modal-container{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

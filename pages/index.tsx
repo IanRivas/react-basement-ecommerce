@@ -42,7 +42,8 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="container mx-auto overflow-hidden">
+    <div className="container mx-auto">
+      <Nav shoppingCart={CartQueue} toggle={toggleCartModal} />
       {show ? (
         <div
           className="absolute top-0 right-0 bg-black opacity-70 cortina-negra w-full z-20 sm:block hidden"
@@ -51,7 +52,6 @@ const Home: NextPage = () => {
       ) : (
         <div />
       )}
-      <Nav shoppingCart={CartQueue} toggle={toggleCartModal} />
       <CartModal
         products={productList}
         setShoppingCart={setCartQueue}

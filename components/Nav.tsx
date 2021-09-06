@@ -12,9 +12,9 @@ type navProp = {
   shoppingCart: Product[];
 };
 
-function Header({toggle, shoppingCart}: navProp) {
+function Nav({toggle, shoppingCart}: navProp) {
   return (
-    <nav className="flex justify-between my-8 sticky top-0 bg-black z-10 py-2 px-4 sm:px-0">
+    <nav className="flex justify-between my-8 sticky top-0 right-0 bg-black z-10 py-2 px-4 sm:px-0">
       <div className="logo-long flex items-center">
         <Image alt="Basement" src={logo} />
       </div>
@@ -31,4 +31,4 @@ function Header({toggle, shoppingCart}: navProp) {
   );
 }
 
-export default Header;
+export default Nav;
