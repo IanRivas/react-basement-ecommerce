@@ -6,21 +6,21 @@ const allProducts = async (request: IncomingMessage, response: ServerResponse) =
   response.end(
     JSON.stringify({
       product1: {
-        id: "1",
+        id: 1,
         itemName: "Black t-shirt",
-        itemPrice: "$7.95",
+        itemPrice: 7.95,
         itemSrc: "/products/shirt.png",
       },
       product2: {
-        id: "2",
+        id: 2,
         itemName: "Black hoodie",
-        itemPrice: "$13",
+        itemPrice: 13,
         itemSrc: "/products/hoodie.png",
       },
       product3: {
-        id: "3",
+        id: 3,
         itemName: "Black cap",
-        itemPrice: "$23",
+        itemPrice: 23,
         itemSrc: "/products/cap.png",
       },
     }),

@@ -29,14 +29,79 @@ a {
 div.gradient{
   background: linear-gradient(180deg, #1D1D1D 0%, rgba(21, 21, 21, 0) 100%);
   transform: rotate(-180deg);
-  height: 577px;
+}
+.h-100{
+  height: 36rem;
 }
 
 p.text-animation{
-  animation: scrollLeft 5s linear infinite
+  animation: scrollLeft 5s linear infinite;
 }
 
 @keyframes scrollLeft {
   0%{transform: translateX(0);}
   100%{transform: translateX(-64%);}
+}
+
+span.text-bor{
+  -webkit-text-stroke: 1px white;
+}
+
+.svg-animation{
+  animation: rotacion 30s linear infinite;
+}
+
+.borrar-short-logo{
+  display: none;
+}
+
+@keyframes rotacion {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1280px) {
+  .h-100{
+    height: 25rem;
+  }
+}
+@media (max-width: 1024px) {
+  .h-100{
+    height: 18rem;
+  }
+}
+@media (max-width: 880px) {
+  .modal-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 650px) {
+  .card-grid{
+    display: block;
+  }
+  .h-100{
+    height: 30rem;
+    width: 80%;
+    margin: 30px auto;
+  }
+  .borrar{
+    display: none;
+  }
+  
+}
+@media (max-width: 450px) {
+  .h-100{
+    height: 20rem;
+  }
+  .logo-long{
+    display: none;
+  }
+  .borrar-short-logo{
+    display: block;
+  }
 }

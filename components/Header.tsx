@@ -17,10 +17,10 @@ function Header() {
           can’t have enough base­ment swag
         </p>
       </div>
-      <div className="absolute -bottom-10 right-0 w-48 h-48">
+      <div className="absolute flex justify-center items-center svg-animation | bottom-5 right-0 w-16 h-16 | md:bottom-5 md:right-0 md:w-28 md:h-28 | xl:-bottom-10 xl:right-0  xl:w-48 xl:h-48">
         <Image alt="Asterisk" src={Asterisk2} />
       </div>
-      <div className="absolute -bottom-24 left-0 w-48 h-48">
+      <div className="absolute flex justify-center items-center svg-animation | -bottom-5 left-0 w-16 h-16 | md:-bottom-16 md:left-0 md:w-28 md:h-28 | xl:-bottom-24 xl:left-0 xl:w-48 xl:h-48">
         <Image alt="Asterisk" src={Asterisk} />
       </div>
     </div>

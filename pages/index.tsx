@@ -7,10 +7,16 @@ import {Product} from "../product/types";
 import Nav from "@components/Nav";
 import Card from "@components/Card";
 import Header from "@components/Header";
+import CartModal from "@components/CartModal";
 import Footer from "@public/footer.svg";
+
+const KEY = "CartItems";
 
 const Home: NextPage = () => {
   const [productList, setproductList] = useState<Product[]>([]);
+  const [CartQueue, setCartQueue] = useState<Product[]>([]);
+
+  const [show, setShow] = useState<boolean>(false);
 
   useEffect(() => {
     window
@@ -20,20 +26,35 @@ const Home: NextPage = () => {
         data = Object.values(data);
         setproductList(data);
       });
+    const storedCart: Product[] = JSON.parse(localStorage.getItem(KEY) as string);
+
+    if (storedCart) {
+      setCartQueue(storedCart);
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem(KEY, JSON.stringify(CartQueue));
+  }, [CartQueue]);
+
+  const toggleCartModal = (): any => {
+    setShow(!show);
+  };
 
   return (
     <div className="container mx-auto">
-      <Nav />
+      <Nav shoppingCart={CartQueue} toggle={toggleCartModal} />
+      <CartModal
+        products={productList}
+        setShoppingCart={setCartQueue}
+        shoppingCart={CartQueue}
+        show={show}
+        toggleShoppingCart={toggleCartModal}
+      />
       <Header />
-      <div className="container grid grid-flow-col grid-cols-3 gap-4">
+      <div className="container grid grid-flow-col grid-cols-3 gap-4 card-grid">
         {productList.map((product, i) => (
-          <Card
-            key={i}
-            itemName={product.itemName}
-            itemPrice={product.itemPrice}
-            itemSrc={product.itemSrc}
-          />
+          <Card key={i} changeQuantity={setCartQueue} item={product} />
         ))}
       </div>
       <div className="flex justify-center">

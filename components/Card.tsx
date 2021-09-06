@@ -1,14 +1,24 @@
 import React from "react";
 import Image from "next/image";
 
-import {Product} from "../product/types";
+import {CartItemProps} from "../product/types";
 
+//images
 import addToCart from "@public/addToCart.svg";
 
-function Card({itemSrc, itemName, itemPrice}: Product) {
+function Card({item, changeQuantity}: CartItemProps) {
+  const {itemSrc, itemName, itemPrice} = item;
+
+  const handleCart = () => {
+    changeQuantity((b) => [...b, item]);
+  };
+
   return (
-    <div className="my-16">
-      <div className="gradient flex justify-center item-center border-t-2 relative">
+    <div className="my-16 h-100">
+      <div
+        className="gradient flex justify-center item-center border-t-2 relative h-full"
+        onClick={handleCart}
+      >
         <Image alt="item" className="transform rotate-180" layout="fill" src={itemSrc} />
         <Image
           alt="addToCart"
@@ -18,7 +28,7 @@ function Card({itemSrc, itemName, itemPrice}: Product) {
       </div>
       <div className="flex justify-between my-2">
         <span className="text-2xl">{itemName}</span>
-        <span className="text-2xl">{itemPrice}</span>
+        <span className="text-2xl">${itemPrice}</span>
       </div>
     </div>
   );
