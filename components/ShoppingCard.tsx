@@ -26,23 +26,25 @@ function ShoppingCard({cart, count, substract, add}: propsShopCard) {
       <div className="w-2/5 gradient relative ">
         <Image alt="item-image" className="transform rotate-180" layout="fill" src={itemSrc} />
       </div>
-      <div className="w-3/5 p-5">
-        <h3 className="text-4xl uppercase">{itemName}</h3>
-        <h4 className="text-2xl opacity-50">Unisex Basic Softstyle {itemName.split(" ")[1]}</h4>
-        <p>Precio c/u: ${itemPrice}</p>
-        <div className="flex gap-3 mt-12">
-          <span className="text-2xl">QUANTITY:</span>
-          <div className="flex gap-3 border border-white rounded-full px-2 ">
-            <button className="text-2xl" onClick={left}>
+      <div className="w-3/5 p-5 eliminar-pading">
+        <h3 className="text-1xl sm:text-4xl uppercase title-card-chiqui">{itemName}</h3>
+        <h4 className="text-1xl sm:text-2xl opacity-50 bye">
+          Unisex Basic Softstyle {itemName.split(" ")[1]}
+        </h4>
+        <p className="precio-u">Precio c/u: ${itemPrice}</p>
+        <div className="flex gap-3 sm:mt-5 lg:mt-12 items-center botonera">
+          <span className="text-base sm:text-2xl">QUANTITY:</span>
+          <div className="flex gap-3 border border-white rounded-full px-2 items-center">
+            <button className="text-base sm:text-2xl" onClick={left}>
               -
             </button>
-            <span className="text-2xl">{count}</span>
-            <button className="text-2xl" onClick={right}>
+            <span className="text-base sm:text-2xl">{count}</span>
+            <button className="text-base sm:text-2xl" onClick={right}>
               +
             </button>
           </div>
         </div>
-        <h3 className="text-2xl ">${(itemPrice * count).toFixed(2)}</h3>
+        <h3 className="text-1xl sm:text-2xl card-price">${(itemPrice * count).toFixed(2)}</h3>
       </div>
     </div>
   );

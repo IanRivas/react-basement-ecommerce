@@ -54,6 +54,9 @@ span.text-bor{
 .borrar-short-logo{
   display: none;
 }
+.cortina-negra{
+  height: 1800px;
+}
 
 @keyframes rotacion {
   100%{
@@ -103,5 +106,27 @@ span.text-bor{
   }
   .borrar-short-logo{
     display: block;
+  }
+  .bye{
+    display: none;
+  }
+}
+@media (max-width:380px){
+  .botonera{
+    flex-direction: column;
+    gap: 0;
+  }
+  .card-price{
+    text-align: center;
+    margin-top: 10px;
+  }
+  .precio-u{
+    display: none;
+  }
+  .title-card-chiqui{
+    text-align: center;
+  }
+  .eliminar-pading{
+    padding: 0.8rem 0;
   }
 }

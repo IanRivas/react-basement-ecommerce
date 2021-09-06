@@ -22,7 +22,7 @@ const CartModal: React.FC<CartProps> = ({
   products,
 }) => {
   const showHideClassName = show
-    ? "bg-block fixed bg-black text-white top-0 right-0 z-10 border border-white w-3/5 h-3/4 | xl:w-2/5 xl:h-3/4 modal-container "
+    ? "bg-block fixed bg-black text-white top-0 right-0 z-30 border border-white w-3/5 h-3/4 | xl:w-2/5 xl:h-3/4 modal-container "
     : "hidden";
 
   const subtractItem = (id: number) => {
@@ -38,6 +38,16 @@ const CartModal: React.FC<CartProps> = ({
     setShoppingCart([...shoppingCart, x]);
   };
 
+  React.useEffect(() => {
+    const handleEsc = (event: any) => {
+      if (event.keyCode === 27) {
+        toggleShoppingCart();
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+  }, [toggleShoppingCart]);
+
   return (
     <div className={showHideClassName}>
       <div className="relative h-full container">
@@ -47,7 +57,7 @@ const CartModal: React.FC<CartProps> = ({
             <span className="text-center">CLOSE</span>
           </button>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center flex-col sm:flex-row text-center">
           <span className="text-8xl">YOUR</span>
           <span className="text-8xl text-black text-bor">CART</span>
         </div>
@@ -62,11 +72,11 @@ const CartModal: React.FC<CartProps> = ({
                 substract={subtractItem}
               />
             ) : (
-              <h3> </h3>
+              <h3 key={index}> </h3>
             ),
           )}
         </div>
-        <div className="absolute bottom-10 sm:bottom-0 right-0 flex justify-between flex-col sm:flex-row  w-full sm:h-14 border border-white">
+        <div className="absolute bottom-15 sm:bottom-0 right-0 flex justify-between flex-col sm:flex-row  w-full sm:h-14 border border-white">
           <div className="w-full sm:w-2/3 flex sm:justify-start justify-center items-center">
             <span className="text-4xl ml-6">TOTAL:</span>
             <span className="text-4xl ml-4">
