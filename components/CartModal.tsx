@@ -22,7 +22,7 @@ const CartModal: React.FC<CartProps> = ({
   products,
 }) => {
   const showHideClassName = show
-    ? "bg-block fixed bg-black text-white top-0 z-30 border border-white w-3/5 h-3/4 | xl:w-2/5 xl:h-3/4 modal-container overflow-y-scroll "
+    ? "bg-block fixed bg-black text-white top-0 right-0 z-30 border border-white w-3/5 h-3/4 | xl:w-2/5 xl:h-3/4 modal-container overflow-y-scroll "
     : "hidden";
 
   const subtractItem = (id: number) => {
